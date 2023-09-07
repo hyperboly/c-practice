@@ -6,6 +6,7 @@ int main() {
     int a = 10;
     int b = 11;
     b -= 5;
-    result=10+11;
+    result=a+b;
+    cout << result;
     return result;
 }
