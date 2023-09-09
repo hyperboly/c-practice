@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/hyperboly/Programming/cpp/simple-calculator/src/Add.cpp" "CMakeFiles/simpleCalc.dir/src/Add.cpp.o" "gcc" "CMakeFiles/simpleCalc.dir/src/Add.cpp.o.d"
   "/home/hyperboly/Programming/cpp/simple-calculator/src/Main.cpp" "CMakeFiles/simpleCalc.dir/src/Main.cpp.o" "gcc" "CMakeFiles/simpleCalc.dir/src/Main.cpp.o.d"
   )
 

@@ -129,6 +129,30 @@ simpleCalc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleCalc.dir/build.make CMakeFiles/simpleCalc.dir/build
 .PHONY : simpleCalc/fast
 
+src/Add.o: src/Add.cpp.o
+.PHONY : src/Add.o
+
+# target to build an object file
+src/Add.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleCalc.dir/build.make CMakeFiles/simpleCalc.dir/src/Add.cpp.o
+.PHONY : src/Add.cpp.o
+
+src/Add.i: src/Add.cpp.i
+.PHONY : src/Add.i
+
+# target to preprocess a source file
+src/Add.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleCalc.dir/build.make CMakeFiles/simpleCalc.dir/src/Add.cpp.i
+.PHONY : src/Add.cpp.i
+
+src/Add.s: src/Add.cpp.s
+.PHONY : src/Add.s
+
+# target to generate assembly for a file
+src/Add.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleCalc.dir/build.make CMakeFiles/simpleCalc.dir/src/Add.cpp.s
+.PHONY : src/Add.cpp.s
+
 src/Main.o: src/Main.cpp.o
 .PHONY : src/Main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... simpleCalc"
+	@echo "... src/Add.o"
+	@echo "... src/Add.i"
+	@echo "... src/Add.s"
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"

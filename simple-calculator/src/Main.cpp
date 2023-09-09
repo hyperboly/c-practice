@@ -1,12 +1,13 @@
 #include <iostream>
+#include <ostream>
 using namespace std;
 
+int Add(int a, int b);
+
 int main() {
-    int result;
-    int a = 10;
-    int b = 11;
-    b -= 5;
-    result=a+b;
-    cout << result;
-    return result;
+    int x, y;
+    x = 1;
+    y = 2;
+    Add(x,y);
+    return 0;
 }

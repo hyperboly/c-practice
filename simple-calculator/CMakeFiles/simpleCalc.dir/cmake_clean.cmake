@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/simpleCalc.dir/src/Add.cpp.o"
+  "CMakeFiles/simpleCalc.dir/src/Add.cpp.o.d"
   "CMakeFiles/simpleCalc.dir/src/Main.cpp.o"
   "CMakeFiles/simpleCalc.dir/src/Main.cpp.o.d"
   "simpleCalc"
