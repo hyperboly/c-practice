@@ -1,3 +1,0 @@
-/home/hyperboly/Programming/cpp/simple-calculator/CMakeFiles/simpleCalc.dir
-/home/hyperboly/Programming/cpp/simple-calculator/CMakeFiles/edit_cache.dir
-/home/hyperboly/Programming/cpp/simple-calculator/CMakeFiles/rebuild_cache.dir
