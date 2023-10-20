@@ -1,2 +1,2 @@
-# Learning C++
-My repo for practicing C++.
+# Learning C
+My repo for practicing C
