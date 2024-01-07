@@ -1,3 +1,8 @@
+/*
+* Project 1
+* Client
+*/
+
 #include <arpa/inet.h>
 #include <errno.h>
 #include <stdio.h>
@@ -5,6 +10,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <netinet/in.h>
+#include <unistd.h>
 
 int main(void) {
     // descriptor for the client socket
@@ -36,6 +42,17 @@ int main(void) {
         printf("Connection status bad, error number: %d\n", errno);
         return -1;
     }
+
+    // receive data from server
+    // serverResponse is the response and how large it can be (256)
+    char serverResponse[256];
+    recv(socketDesc, &serverResponse, sizeof(serverResponse), 0);
+
+    // print data from server
+    printf("Here's what the server said: %s\n", serverResponse);
+
+    // close the connection
+    close(socketDesc);
 
     return 0;
 }
