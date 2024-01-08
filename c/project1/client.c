@@ -12,9 +12,12 @@
 #include <netinet/in.h>
 #include <unistd.h>
 
+#define PORT 61111
+
 int main(void) {
     // descriptor for the client socket
     int socketDesc = socket(AF_INET, SOCK_STREAM, 0);
+    char clientMsg[256] = "Hello Server!";
 
     if(socketDesc < 0){
         printf("Bad socket creation\n");
@@ -27,7 +30,7 @@ int main(void) {
     serverAddress.sin_family = AF_INET;
     // define the port, see man htons. basically converts to network bytes
     // because server_address.sin_port only takes binary
-    serverAddress.sin_port = htons(61111);
+    serverAddress.sin_port = htons(PORT);
     // sin_addr is a struct, so defines s_addr inside sin_addr
     // INADDR_ANY is 0.0.0.0
     serverAddress.sin_addr.s_addr = INADDR_ANY;
@@ -43,10 +46,18 @@ int main(void) {
         return -1;
     }
 
+    if(send(socketDesc, &clientMsg, sizeof(clientMsg), 0) < 0) {
+        printf("Client send failed, errno: %d\n", errno);
+        return -1;
+    }
+
     // receive data from server
     // serverResponse is the response and how large it can be (256)
     char serverResponse[256];
-    recv(socketDesc, &serverResponse, sizeof(serverResponse), 0);
+    if(recv(socketDesc, &serverResponse, sizeof(serverResponse), 0) < 0) {
+        printf("Error receiving message from server. Errno: %d", errno);
+        return -1;
+    }
 
     // print data from server
     printf("Here's what the server said: %s\n", serverResponse);
