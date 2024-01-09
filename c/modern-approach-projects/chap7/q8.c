@@ -3,9 +3,9 @@
 
 int main() {
     int min, hr, minsFromMidnight, ansMin, ansHr;
-    char timeChar1, timeChar2;
-    printf("Enter a 24-hour time: ");
-    scanf("%d:%d %c%c", &hr, &min, &timeChar1, &timeChar2);
+    char timeChar;
+    printf("Enter a 12-hour time: ");
+    scanf("%d:%d %c", &hr, &min, &timeChar);
     minsFromMidnight = hr*60 + min;
 
     // Flight times
