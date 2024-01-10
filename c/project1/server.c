@@ -16,7 +16,7 @@
 
 int main(void) {
     const int trueFlag = 1;
-    char serverMessage[256] = "This is the server speaking.";
+    char serverMessage[256] = "Hello!";
 
     // socketDesc is file descriptor
     // AF_INET is IPv4
@@ -55,12 +55,13 @@ int main(void) {
     int clientSocket = accept(socketDesc, NULL, NULL);
 
     char clientMsg[256];
+
     if(recv(clientSocket, &clientMsg, sizeof(clientMsg), 0) < 0) {
         printf("Receive from client failed, errno: %d", errno);
         return -1;
     }
 
-    printf("What the client said: %s\n", clientMsg);
+    printf("What the client said: %s", clientMsg);
 
     // send client data
     if(send(clientSocket, serverMessage, sizeof(serverMessage), 0) < 0) {

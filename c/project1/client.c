@@ -17,9 +17,9 @@
 int main(void) {
     // descriptor for the client socket
     int socketDesc = socket(AF_INET, SOCK_STREAM, 0);
-    char clientMsg[256] = "Hello Server!";
+    char clientMsg[256];
 
-    if(socketDesc < 0){
+    if(socketDesc < 0) {
         printf("Bad socket creation\n");
         return -1;
     }
@@ -45,6 +45,9 @@ int main(void) {
         printf("Connection status bad, error number: %d\n", errno);
         return -1;
     }
+
+    printf("> ");
+    fgets(clientMsg, 256, stdin);
 
     if(send(socketDesc, &clientMsg, sizeof(clientMsg), 0) < 0) {
         printf("Client send failed, errno: %d\n", errno);
