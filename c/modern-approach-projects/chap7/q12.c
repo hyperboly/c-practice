@@ -1,27 +1,38 @@
 #include <stdio.h>
+#include <ctype.h>
 
-int main(void) {
-    char input[256];
-    float ans, current;
-
-    fgets(input, 256, stdin);
-
-    for(int i=0; i<sizeof(input); i++) {
-        if(input[i] == '+') {
-        }
-        else if(input[i] == '-') {
-        }
-        else if(input[i] == '*') {
-        }
-        else if(input[i] == '%') {
-        }
-        else if(input[i] == '.') {
-        }
-        else {
-        }
-    }
+int main(void)
+{
+    float num = 0.0f, running_total = 0.0f;
+    char ch;
 
     printf("Enter an expression: ");
+    scanf("%f", &running_total);
+    
+    while ((ch = getchar()) != '\n') {
+
+        switch (ch) {
+            case '+':
+                scanf("%f", &num);
+                running_total += num;
+                break;
+            case '-':
+                scanf("%f", &num);
+                running_total -= num;
+                break;
+            case '*':
+                scanf("%f", &num);
+                running_total *= num;
+                break;
+            case '/':
+                scanf("%f", &num);
+                running_total /= num;
+                break;
+            default:
+                continue;
+        }
+    }
+    printf("Value of expression: %.2f", running_total);
 
     return 0;
 }
