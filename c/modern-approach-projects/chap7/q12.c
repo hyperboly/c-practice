@@ -1,11 +1,27 @@
 #include <stdio.h>
 
 int main(void) {
-    char inputCh;
-    printf("Enter an expression: ");
+    char input[256];
+    float ans, current;
 
-    while((inputCh = getchar()) != '\n') {
+    fgets(input, 256, stdin);
+
+    for(int i=0; i<sizeof(input); i++) {
+        if(input[i] == '+') {
+        }
+        else if(input[i] == '-') {
+        }
+        else if(input[i] == '*') {
+        }
+        else if(input[i] == '%') {
+        }
+        else if(input[i] == '.') {
+        }
+        else {
+        }
     }
+
+    printf("Enter an expression: ");
 
     return 0;
 }
