@@ -12,29 +12,29 @@
 #include <unistd.h>
 
 int main(void) {
-    int socketDesc = socket(AF_INET, SOCK_STREAM, 0);
+    int serverDesc = socket(AF_INET, SOCK_STREAM, 0);
 
     const int trueFlag = 1;
-    setsockopt(socketDesc, SOL_SOCKET, SO_REUSEADDR, &trueFlag, sizeof(int));
+    setsockopt(serverDesc, SOL_SOCKET, SO_REUSEADDR, &trueFlag, sizeof(int));
 
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_port = htons(20000);
     addr.sin_addr.s_addr = INADDR_ANY;
 
-    int bindStat = bind(socketDesc, (struct sockaddr*) &addr, sizeof(addr));
+    int bindStat = bind(serverDesc, (struct sockaddr*) &addr, sizeof(addr));
 
     if(bindStat < 0) {
         printf("Bind error! Error number: %d\n", errno);
         return -1;
     }
 
-    if(listen(socketDesc, 128) < 0) {
+    if(listen(serverDesc, 128) < 0) {
         printf("Error listening to socket. Errno: %d", errno);
         return -1;
     }
 
-    int clientDesc = accept(socketDesc, NULL, NULL);
+    int clientDesc = accept(serverDesc, NULL, NULL);
 
     if(clientDesc < 0) {
         printf("Error accepting socket. Errno: %d", errno);
@@ -42,7 +42,7 @@ int main(void) {
     }
 
     char serverBuffer[256] = {0};
-    if(recv(clientDesc, serverBuffer, 256, 0)) {
+    if(recv(clientDesc, serverBuffer, 256, 0) < 0) {
         printf("Error receiving data from client. Errno: %d", errno);
         return -1;
     }
@@ -56,7 +56,7 @@ int main(void) {
     sendfile(clientDesc, opened_fd, 0, 256);
     close(opened_fd);
     close(clientDesc);
-    close(socketDesc);
+    close(serverDesc);
 
     return 0;
 }
